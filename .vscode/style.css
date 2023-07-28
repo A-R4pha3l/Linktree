@@ -1,0 +1,178 @@
+* {
+  /* códigos que mexem na configuração padrão do navegador*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* esse comando vai  fazer com que as medidas da caixa sejam feitas
+  com a borda, dessa forma qualuqer preenchimento interno ,padding, respeitará
+  o widith 360 sem autera-lo.*/
+}
+
+:root {
+  /*sudoselector, ele esta pegando o html*/
+  --text-color: white; /*variável CSS*/
+  --bg-url: url(bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --high-light-color: rgba(255, 255, 255, 0.2);
+  --switch: url(moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --high-light-color: rgba(0, 0, 0, 0.1);
+  --switch: url(sun.svg);
+}
+
+body {
+  /*background-image: url(bg-mobile.jpg);
+  background-repeat:no-repeat ;
+  background-position:top center;
+  background-size:cover ;*/
+  /* esse comandos podem ser simplificados com o comando abaixo:*/
+  /* a sintaxe origial é: bacground: color image repeat position/size */
+  /* Não coloquei o valor color pois não usei cor*/
+
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color); /*"var" é a função que chama variaveis*/
+}
+/* o asterisco indica "seletor universal" , ou seja, todos os elementos em body
+usarão essa fonte  e a cor branca*/
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0px 24px; /*O preenchimento interno das laterais sera de 24 pixeis*/
+}
+
+/*profile*/
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#pofile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*switch*/
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  /*Alinhamento de position: absolute*/
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* Links/lista */
+
+ul {
+  list-style: none; /* tira os estilos da lista*/
+  display: flex;
+  flex-direction: column; /* Vai deixar os filhos do
+   UL alinhados em colunas. */
+  gap: 16px; /*Espaço entre os filhos do UL*/
+  padding: 24px 0px;
+}
+
+ul li a {
+  display: flex; /*Display permite-me modificar 
+  as configurações padrôes das tags*/
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  /*RGB são as cores que somadas
+  ao se valor máximo(255) formam a cor branca A é a transparencia.*/
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: Blur(4px); /*Adiciona um efeito de blur(embaçado).*/
+  -webkit-backdrop-filter: blur(
+    4px
+  ); /*Faz com que os navegadores
+  aceitem mais facilmente a propriedade backdrop-filter.*/
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s; /* Vai tornar visível a parte selecionada
+  pelo tempo descrito*/
+}
+
+/*pseudosselector
+aplica propriedades quando o mouse
+passa passa por cima dos itens */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/*social links*/
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px 0px;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--high-light-color);
+}
+
+footer {
+  padding: 24px 0px;
+  text-align: center;
+  font-size: 14px;
+}
