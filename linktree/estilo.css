@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --cor-texto: white;
+  --plano-fundo: url(/linktree/afb7176d-c98e-48ac-a170-e80d1990b285.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255,255,255,0.05);
+  --surface-color-hover: rgba(255,255,255,0.02);
+  --high-light-color: rgba(255, 255, 255, 0.2);
+  --switch: url(/linktree/moon-stars.svg) no-repeat center;
+  /*--icon: url(spiderSuperior.jpeg);*/
+}
+
+.claro{
+  --cor-texto: black;
+  --plano-fundo: url(/linktree/Sky.jpeg);
+  --stroke-color: rgba(0,0,0,0.5);
+  --surface-color: rgba(0,0,0,0.05);
+  --surface-color-hover: rgba(0,0,0,0.02);
+  --high-light-color: rgba(0,0,0,0.1);
+  --switch: url(/linktree/sun.svg) no-repeat  center;
+  /*--icon: url(spiderPeter.jpeg);*/
+}
+
+body {
+  background: var(--plano-fundo) no-repeat top center/cover;
+  height: 100vh;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--cor-texto);
+}
+
+#pai {
+  width: 360px;
+  margin: 56px auto 0px;
+  /*border: 1px red solid;*/
+}
+
+#icon {
+  text-align: center;
+  padding: 24px;
+}
+
+#icon img {
+  border-radius: 50%;
+  width: 112px;
+}
+
+#icon p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+/*Swtich*/
+
+#switch{
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button{
+  width: 32px;
+  height: 32px;
+  background: white var(--switch);
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.claro #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span{
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+/*Lista*/
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 10px;
+  backdrop-filter: Blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.5s;
+}
+
+ul li a:hover{
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--cor-texto);
+}
+
+#social{
+  display: flex;
+  justify-content: center;
+  padding: 24px 0px;
+  font-size: 24px;
+}
+
+#social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 2s;
+  border-radius: 50%;
+}
+
+#social a:hover{
+  background: var(--high-light-color);
+}
+
+footer{
+  padding: 24px 0px;
+  text-align: center;
+  font-size: 24px;
+  text-decoration: underline;
+}
