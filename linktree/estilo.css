@@ -6,7 +6,7 @@
 
 :root{
   --cor-texto: white;
-  --plano-fundo: url(/linktree/afb7176d-c98e-48ac-a170-e80d1990b285.jpg);
+  --plano-fundo: url(/linktree/galaxy.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255,255,255,0.05);
   --surface-color-hover: rgba(255,255,255,0.02);
@@ -17,7 +17,7 @@
 
 .claro{
   --cor-texto: black;
-  --plano-fundo: url(/linktree/Sky.jpeg);
+  --plano-fundo: url(/linktree/flores.jpg);
   --stroke-color: rgba(0,0,0,0.5);
   --surface-color: rgba(0,0,0,0.05);
   --surface-color-hover: rgba(0,0,0,0.02);
@@ -76,11 +76,15 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+  animation: reverter 0.5s ;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--high-light-color);
 }
 
 .claro #switch button {
-  right: 0;
-  left: initial;
+  animation: deslisar 0.5s forwards;
 }
 
 #switch span{
@@ -92,6 +96,7 @@ body * {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
+  
 }
 /*Lista*/
 
@@ -100,6 +105,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin: 32px;
 }
 
 ul li a {
@@ -147,4 +153,31 @@ footer{
   text-align: center;
   font-size: 24px;
   text-decoration: underline;
+}
+
+@media (min-width:700px) {
+  :root{
+    --plano-fundo: url(galaxy-desktop.jpg);
+  }
+  .claro{
+    --plano-fundo: url(flores-desktop.jpg);
+  }
+  
+}
+
+@keyframes deslisar{
+  from{
+    left:0;
+  }
+  to{
+    left:50%
+  }
+}
+@keyframes reverter{
+  from{
+    left:50%;
+  }
+  to{
+    left:0;
+  }
 }
